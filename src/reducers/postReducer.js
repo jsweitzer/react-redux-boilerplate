@@ -1,27 +1,19 @@
-import { FETCH_POSTS, NEW_POST } from '../actions/types'
+import { FETCH_POSTS, NEW_POST, INIT_STATE } from '../actions/types'
 
-const initialState = {
-    items: [],
-    item: {}
-}
+const initialState = {}
 
 export default function(state = initialState, action) {
     console.log('reducing');
     switch(action.type){
         case FETCH_POSTS:
-        return {
-            ...state,
-            items: action.payload
-        }
-        break;
+        return { ...state, webItems: [...action.payload] }
         case NEW_POST:
-        return {
-            ...state,
-            item: action.payload
-        }
-        break;
+            action.post.id = state.items.length + 1;
+            return {...state, items: [ action.post,...state.items ]}
+        case INIT_STATE:
+            return  {...state}
         default:
-        return state;
-        break;
+            return state;
     }
 }
+

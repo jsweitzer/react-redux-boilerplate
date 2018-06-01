@@ -4,6 +4,7 @@ import AddTodo from '../containers/AddTodo'
 import VisibleTodoList from '../containers/VisibleTodoList'
 import Posts from './Posts'
 import PostForm from './PostForm'
+import WebPosts from './WebPosts'
 
 const App = () => (
   <div>
@@ -12,7 +13,9 @@ const App = () => (
     <Footer />
     <PostForm />
     <Posts />
+    <WebPosts />
   </div>
 )
+
 
 export default App

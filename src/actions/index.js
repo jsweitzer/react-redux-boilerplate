@@ -1,6 +1,7 @@
-import { FETCH_POSTS, NEW_POST } from './types'
+import { FETCH_POSTS, NEW_POST,INIT_STATE } from './types'
 
 let nextTodoId = 0
+const initialState = {};
 export const addTodo = text => ({
   type: 'ADD_TODO',
   id: nextTodoId++,
@@ -37,17 +38,9 @@ export function fetchPosts(){
 export function createPost(postData){
   console.log('posted');
   return function(dispatch){
-    fetch('https://jsonplaceholder.typicode.com/posts', {
-    method: 'POST',  
-    headers: {
-        'content-type': 'application/json'
-      },
-      body: JSON.stringify(postData)
-    })
-    .then(res => res.json())
-    .then(post => dispatch({
+    dispatch({
       type: NEW_POST,
-      payload: post
-    }));
+      post: postData
+    })
   }
 }
