@@ -4,7 +4,7 @@ import rootReducer from './reducers'
 import { loadState, saveState } from './localStorage'
 
 const defaultState = { posts: { items: [], webItems: [] }};
-const initialState = loadState() || defaultState;
+const initialState = defaultState;//loadState() || defaultState;
 
 const middleware = [thunk];
 
@@ -18,7 +18,7 @@ const store = createStore(
 );
 
 store.subscribe(() => {
-    saveState(store.getState());
+    //saveState(store.getState());
 });
 
 export default store;

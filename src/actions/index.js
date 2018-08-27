@@ -1,7 +1,7 @@
-import { FETCH_POSTS, NEW_POST,INIT_STATE } from './types'
+import { FETCH_POSTS, NEW_POST } from './types'
 
 let nextTodoId = 0
-const initialState = {};
+
 export const addTodo = text => ({
   type: 'ADD_TODO',
   id: nextTodoId++,
